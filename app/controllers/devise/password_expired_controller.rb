@@ -2,7 +2,7 @@
 
 class Devise::PasswordExpiredController < DeviseController
   before_action :verify_requested_format!
-  skip_before_action :handle_password_change
+  skip_before_action :handle_password_change, require: false
   before_action :skip_password_change, only: [:show, :update]
   prepend_before_action :authenticate_scope!, only: [:show, :update]
 
